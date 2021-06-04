@@ -115,8 +115,17 @@ final class MainViewController: UIViewController {
         if !viewModel.errors.isEmpty {
             viewModel.presentDataErrorsMessage(delegate: self)
         } else {
-            viewModel.saveUser()
+            viewModel.saveUser(delegate: self, id: userLogged?.id)
+            DispatchQueue.main.async {
+                self.clearData()
+            }
         }
+    }
+    
+    private func clearData() {
+        nameTextField.text = ""
+        lastNameTextField.text = ""
+        yearsTextField.text = ""
     }
     
 }

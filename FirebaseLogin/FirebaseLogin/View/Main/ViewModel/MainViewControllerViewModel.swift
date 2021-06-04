@@ -139,9 +139,18 @@ class MainViewControllerViewModel {
         errors.removeAll()
     }
     
-    func saveUser() {
-        let user = client.toDictionary()
-        print(user)
+    func saveUser(delegate: UIViewController, id: String?) {
+        if let uid = id {
+            ServiceDataManager().saveClient(delegate: delegate, id: uid, client: client) { error, ref in
+                if let error = error {
+                    delegate.presentAlertController(title: "Error", message: error.localizedDescription, completion: nil)
+                return
+                }
+                
+                delegate.presentAlertController(title: "Success!", message: "Client saved", completion: nil)
+            }
+        }
+        
     }
     
 }

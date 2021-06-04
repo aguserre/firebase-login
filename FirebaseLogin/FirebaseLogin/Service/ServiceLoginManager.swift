@@ -55,7 +55,7 @@ final class ServiceLoginManager {
                 })
             }
             if let res = res, let vc = self.delegate as? LoginViewController {
-                let userLogged = User(name: res.user.displayName, image: res.user.photoURL?.absoluteString)
+                let userLogged = User(id: res.user.uid, name: res.user.displayName, image: res.user.photoURL?.absoluteString)
                 vc.goToMain(userLogged: userLogged)
             }
         }

@@ -24,7 +24,7 @@ extension Users: Decodable {
 }
 
 struct User {
-    var id: Int?
+    var id: String?
     var name: String?
     var lastName: String?
     var image: String?
@@ -45,7 +45,7 @@ extension User: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
-        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+        self.id = try container.decodeIfPresent(String.self, forKey: .id)
         self.name = try container.decodeIfPresent(String.self, forKey: .name)
         self.lastName = try container.decodeIfPresent(String.self, forKey: .lastName)
         self.image = try container.decodeIfPresent(String.self, forKey: .image)
@@ -53,21 +53,11 @@ extension User: Decodable {
         self.birthDate = try container.decodeIfPresent(String.self, forKey: .birthDate)
     }
     
-    func toDictionary() -> [AnyHashable : Any] {
-        var dic = [AnyHashable : Any]()
-        if let name = name {
-            dic["name"] = name
-        }
-        if let lastName = lastName {
-            dic["lastName"] = lastName
-        }
-        if let years = years {
-            dic["years"] = years
-        }
-        if let birthDay = birthDate {
-            dic["birthDay"] = birthDay
-        }
-        
-        return dic
+    func toDictionary() -> NSDictionary {
+        return ["id" : (id ?? "") as String,
+                "name" : (name ?? "") as String,
+                "lastName" : (lastName ?? "") as String,
+                "years" : NSNumber(value: years ?? 0),
+                "birthDay" : (birthDate ?? "") as String] as NSDictionary
     }
 }
