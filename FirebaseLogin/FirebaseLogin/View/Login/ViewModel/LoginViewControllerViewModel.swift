@@ -6,24 +6,14 @@
 //
 import UIKit
 
+enum LoginMethod {
+    case facebook, none
+}
+
 struct LoginViewControllerViewModel {
     
-    enum LoginMethod {
-        case facebook, phone, none
-    }
-    
-    var loginMethod: LoginMethod {
-        return .none
-    }
-    
     var faceboohLogoImage: UIImage? {
-        return UIImage(named: "fb-logo")
-    }
-    
-    var phoneLogoImage: UIImage? {
-        let image = UIImage(systemName: "phone.fill")
-        image?.withRenderingMode(.alwaysTemplate)
-        return image
+        return UIImage(named: "logo-fb")
     }
     
     func setupButtonBackgroundColor(type: LoginMethod) -> UIColor {
@@ -31,10 +21,8 @@ struct LoginViewControllerViewModel {
         switch type {
         case .facebook:
             backgroundColor = .blue
-        case .phone:
-            backgroundColor = .systemIndigo
         default:
-            backgroundColor = .clear
+            backgroundColor = .systemIndigo
         }
         
         return backgroundColor
@@ -54,6 +42,10 @@ struct LoginViewControllerViewModel {
     
     var logoImage: UIImage? {
         return UIImage(named: "login-logo")
+    }
+    
+    func login(provider: LoginMethod, delegate: UIViewController) {
+        ServiceLoginManager(delegate: delegate).login(provider: provider, delegate: delegate)
     }
     
 }

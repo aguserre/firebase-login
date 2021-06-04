@@ -7,23 +7,22 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
+    
+    var loginWithMethod: LoginMethod?
+    var userLogged: User?
+
+    private var viewModel: MainViewControllerViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel = MainViewControllerViewModel(provider: loginWithMethod ?? .none)
+        navigationItem.leftBarButtonItem = setupBackButton(target: #selector(logOut))
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc private func logOut() {
+        viewModel?.logOut(delegate: self)
     }
-    */
-
+    
 }

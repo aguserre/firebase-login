@@ -12,9 +12,10 @@
 		0F5CEF4826696E8B00A1C878 /* LoginViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4726696E8B00A1C878 /* LoginViewControllerViewModel.swift */; };
 		0F5CEF4A26696E9E00A1C878 /* MainViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4926696E9E00A1C878 /* MainViewControllerViewModel.swift */; };
 		0F5CEF4D2669790600A1C878 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4C2669790600A1C878 /* Extensions.swift */; };
+		0F5CEF4F26698AA400A1C878 /* ServiceLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4E26698AA400A1C878 /* ServiceLoginManager.swift */; };
+		0F5CEF512669A39700A1C878 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF502669A39700A1C878 /* UserModel.swift */; };
 		0F7517402669645500DA15D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F75173F2669645500DA15D1 /* AppDelegate.swift */; };
 		0F7517422669645500DA15D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7517412669645500DA15D1 /* SceneDelegate.swift */; };
-		0F7517442669645500DA15D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7517432669645500DA15D1 /* ViewController.swift */; };
 		0F7517492669645600DA15D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7517482669645600DA15D1 /* Assets.xcassets */; };
 		0F75174C2669645600DA15D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F75174A2669645600DA15D1 /* LaunchScreen.storyboard */; };
 		0F7517572669645600DA15D1 /* FirebaseLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7517562669645600DA15D1 /* FirebaseLoginTests.swift */; };
@@ -51,10 +52,11 @@
 		0F5CEF4726696E8B00A1C878 /* LoginViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerViewModel.swift; sourceTree = "<group>"; };
 		0F5CEF4926696E9E00A1C878 /* MainViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerViewModel.swift; sourceTree = "<group>"; };
 		0F5CEF4C2669790600A1C878 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0F5CEF4E26698AA400A1C878 /* ServiceLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLoginManager.swift; sourceTree = "<group>"; };
+		0F5CEF502669A39700A1C878 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0F75173C2669645500DA15D1 /* FirebaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F75173F2669645500DA15D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F7517412669645500DA15D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F7517432669645500DA15D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F7517482669645600DA15D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F75174B2669645600DA15D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F75174D2669645600DA15D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,7 +209,6 @@
 				0F7517482669645600DA15D1 /* Assets.xcassets */,
 				0F751777266968D400DA15D1 /* GoogleService-Info.plist */,
 				0F75173F2669645500DA15D1 /* AppDelegate.swift */,
-				0F7517432669645500DA15D1 /* ViewController.swift */,
 				0F7517412669645500DA15D1 /* SceneDelegate.swift */,
 				0F75174D2669645600DA15D1 /* Info.plist */,
 				0F75174A2669645600DA15D1 /* LaunchScreen.storyboard */,
@@ -218,6 +219,7 @@
 		0F7517702669647600DA15D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0F5CEF502669A39700A1C878 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +227,7 @@
 		0F7517712669649A00DA15D1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0F5CEF4E26698AA400A1C878 /* ServiceLoginManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -538,12 +541,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7517752669660A00DA15D1 /* LoginViewController.swift in Sources */,
-				0F7517442669645500DA15D1 /* ViewController.swift in Sources */,
 				0F7517402669645500DA15D1 /* AppDelegate.swift in Sources */,
 				0F5CEF4D2669790600A1C878 /* Extensions.swift in Sources */,
 				0F5CEF4A26696E9E00A1C878 /* MainViewControllerViewModel.swift in Sources */,
+				0F5CEF4F26698AA400A1C878 /* ServiceLoginManager.swift in Sources */,
 				0F5CEF4826696E8B00A1C878 /* LoginViewControllerViewModel.swift in Sources */,
 				0F7517422669645500DA15D1 /* SceneDelegate.swift in Sources */,
+				0F5CEF512669A39700A1C878 /* UserModel.swift in Sources */,
 				0F5CEF4226696B6600A1C878 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

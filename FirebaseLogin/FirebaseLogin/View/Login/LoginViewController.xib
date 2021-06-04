@@ -13,8 +13,6 @@
                 <outlet property="facebookButton" destination="yFE-tH-bTD" id="Zof-rY-8Bc"/>
                 <outlet property="facebookIconImage" destination="PIT-lK-bzK" id="gm1-Sg-Qqo"/>
                 <outlet property="logoImage" destination="vTc-6k-XJ4" id="AcF-Ie-g3e"/>
-                <outlet property="phoneButton" destination="VOB-qv-HLG" id="ZiG-D4-ROr"/>
-                <outlet property="phoneIconImage" destination="GZq-1R-T5J" id="zY9-Bd-Sd1"/>
                 <outlet property="titleAppLabel" destination="bEa-l1-OMB" id="z1X-nr-xag"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,30 +28,17 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="iPS-Si-2Vq"/>
                     </constraints>
+                    <state key="normal" title="Init with Facebook">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="facebookTapped:" destination="-1" eventType="touchUpInside" id="YPF-pJ-KFQ"/>
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PIT-lK-bzK">
-                    <rect key="frame" x="189.5" y="754" width="35" height="31.5"/>
+                    <rect key="frame" x="40" y="754" width="35" height="31.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="WE3-as-Atn"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOB-qv-HLG">
-                    <rect key="frame" x="30" y="807" width="354" height="35"/>
-                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="OmL-X6-MU3"/>
-                    </constraints>
-                    <connections>
-                        <action selector="phoneTapped:" destination="-1" eventType="touchUpInside" id="6km-3g-p1f"/>
-                    </connections>
-                </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GZq-1R-T5J">
-                    <rect key="frame" x="189.5" y="809" width="35" height="31.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="35" id="RHc-E0-AUp"/>
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vTc-6k-XJ4">
@@ -73,23 +58,17 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VOB-qv-HLG" secondAttribute="trailing" constant="30" id="C50-zC-sCD"/>
-                <constraint firstItem="PIT-lK-bzK" firstAttribute="centerX" secondItem="yFE-tH-bTD" secondAttribute="centerX" id="FJO-6w-MuM"/>
-                <constraint firstItem="VOB-qv-HLG" firstAttribute="top" secondItem="yFE-tH-bTD" secondAttribute="bottom" constant="20" id="IGj-nW-WvE"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VOB-qv-HLG" secondAttribute="bottom" constant="20" id="L3W-8g-Yo4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bEa-l1-OMB" secondAttribute="trailing" constant="20" id="NB0-7X-YXx"/>
                 <constraint firstItem="vTc-6k-XJ4" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="S25-84-o1A"/>
                 <constraint firstItem="vTc-6k-XJ4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uj7-oV-UTU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yFE-tH-bTD" secondAttribute="bottom" constant="75" id="VJH-Xf-ZzV"/>
                 <constraint firstItem="PIT-lK-bzK" firstAttribute="height" secondItem="yFE-tH-bTD" secondAttribute="height" multiplier="0.9" id="WAC-HM-GxG"/>
-                <constraint firstItem="GZq-1R-T5J" firstAttribute="height" secondItem="VOB-qv-HLG" secondAttribute="height" multiplier="0.9" id="YCO-tS-aiX"/>
-                <constraint firstItem="GZq-1R-T5J" firstAttribute="centerX" secondItem="VOB-qv-HLG" secondAttribute="centerX" id="e9I-xg-EQi"/>
+                <constraint firstItem="PIT-lK-bzK" firstAttribute="leading" secondItem="yFE-tH-bTD" secondAttribute="leading" constant="10" id="bEL-Ql-I3M"/>
                 <constraint firstItem="yFE-tH-bTD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eQd-j3-avY"/>
                 <constraint firstItem="bEa-l1-OMB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="gq7-vs-A8T"/>
-                <constraint firstItem="GZq-1R-T5J" firstAttribute="centerY" secondItem="VOB-qv-HLG" secondAttribute="centerY" id="p6S-Up-glu"/>
                 <constraint firstItem="yFE-tH-bTD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="r6W-jC-5Hx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yFE-tH-bTD" secondAttribute="trailing" constant="30" id="ukb-bz-Jsr"/>
                 <constraint firstItem="bEa-l1-OMB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="waF-Kn-a8V"/>
-                <constraint firstItem="VOB-qv-HLG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="yp7-pP-Y8y"/>
                 <constraint firstItem="PIT-lK-bzK" firstAttribute="centerY" secondItem="yFE-tH-bTD" secondAttribute="centerY" id="zpZ-U7-h7c"/>
             </constraints>
             <point key="canvasLocation" x="79.710144927536234" y="109.82142857142857"/>

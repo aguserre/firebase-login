@@ -27,26 +27,26 @@ extension UIViewController {
         return alert
     }
     
-    func presentAlertController(title: String, message:String, delegate: UIViewController, completion: ((UIAlertAction) -> Void)?) {
+    func presentAlertController(title: String, message:String, completion: ((UIAlertAction) -> Void)?) {
         let alert = createDefaultAlert(title: title, message: message, completion: completion)
         
-        delegate.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    func presentAlertControllerWithCancel(title: String, message:String, delegate: UIViewController, completion: ((UIAlertAction) -> Void)?) {
+    func presentAlertControllerWithCancel(title: String, message:String, completion: ((UIAlertAction) -> Void)?) {
         let alert = createDefaultAlert(title: title, message: message, completion: completion)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         
-        delegate.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    func presentAlertControllerWithDoubleAction(title: String, message:String, delegate: UIViewController, completionSuccess: ((UIAlertAction) -> Void)?, completionFailed: ((UIAlertAction) -> Void)?) {
+    func presentAlertControllerWithDoubleAction(title: String, message:String, completionSuccess: ((UIAlertAction) -> Void)?, completionFailed: ((UIAlertAction) -> Void)?) {
         let alert = createDefaultAlert(title: title, message: message, completion: completionSuccess)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: completionFailed)
         alert.addAction(cancelAction)
         
-        delegate.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     
@@ -61,19 +61,6 @@ extension UIViewController {
                                             action:target)
         newBackButton.tintColor = .white
         return newBackButton
-    }
-    
-    func clearNavBar() {
-        navigationController?.navigationBar.barTintColor = .systemIndigo
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = .white
-        
-        navigationController?.navigationBar.layer.masksToBounds = false
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOpacity = 0.4
-        navigationController?.navigationBar.layer.shadowOffset = .zero
-        navigationController?.navigationBar.layer.shadowRadius = 4
     }
     
     func setNavTitle(title: String) {

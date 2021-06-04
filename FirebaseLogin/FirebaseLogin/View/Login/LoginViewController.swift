@@ -14,8 +14,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var logoImage: UIImageView!
     @IBOutlet private weak var facebookButton: UIButton!
     @IBOutlet private weak var facebookIconImage: UIImageView!
-    @IBOutlet private weak var phoneButton: UIButton!
-    @IBOutlet private weak var phoneIconImage: UIImageView!
+    
     
     //Properties
     private let viewModel = LoginViewControllerViewModel()
@@ -46,21 +45,16 @@ final class LoginViewController: UIViewController {
         facebookButton.addShadow()
         facebookIconImage.image = viewModel.faceboohLogoImage
         facebookIconImage.addShadow()
-        
-        phoneButton.backgroundColor = viewModel.setupButtonBackgroundColor(type: .phone)
-        phoneButton.roundCorner()
-        phoneButton.addShadow()
-        phoneIconImage.image = viewModel.phoneLogoImage
-        phoneIconImage.tintColor = viewModel.backgroundColor
-        phoneIconImage.addShadow()
     }
 
     @IBAction func facebookTapped(_ sender: UIButton) {
-        
+        viewModel.login(provider: .facebook, delegate: self)
     }
     
-    @IBAction func phoneTapped(_ sender: UIButton) {
-        
+    func goToMain(userLogged: User) {
+        let mainVC = MainViewController()
+        mainVC.userLogged = userLogged
+        navigationController?.pushViewController(mainVC, animated: true)
     }
     
 }
