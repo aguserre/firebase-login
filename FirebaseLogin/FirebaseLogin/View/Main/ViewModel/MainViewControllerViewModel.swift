@@ -8,12 +8,6 @@
 import UIKit
 
 struct MainViewControllerViewModel {
-    
-    let provider: LoginMethod
-    
-    init(provider: LoginMethod) {
-        self.provider = provider
-    }
         
     func logOut(delegate: UIViewController) {
         delegate.presentAlertControllerWithCancel(title: "Wait!", message: "Are you sure to close session?") { action in

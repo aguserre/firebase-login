@@ -6,6 +6,7 @@ target 'FirebaseLogin' do
   use_frameworks!
 
   # Pods for FirebaseLogin
+  pod 'Kingfisher', '~> 6.3'
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Database'
   pod 'FBSDKLoginKit'

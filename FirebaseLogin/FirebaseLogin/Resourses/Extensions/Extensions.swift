@@ -91,10 +91,10 @@ extension UIView {
     }
     
     func roundCorner(radius: CGFloat? = nil, shadow: Bool = false) {
-        layer.cornerRadius = 5
+        layer.cornerRadius = radius ?? 5
         clipsToBounds = true
         if shadow {
-            addShadow(offset: .zero, color: .black, radius: 4, opacity: 1)
+            addShadow(offset: .zero, color: .black, radius: 4, opacity: 0.4)
         }
     }
     

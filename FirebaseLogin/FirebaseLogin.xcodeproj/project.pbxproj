@@ -14,6 +14,7 @@
 		0F5CEF4D2669790600A1C878 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4C2669790600A1C878 /* Extensions.swift */; };
 		0F5CEF4F26698AA400A1C878 /* ServiceLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4E26698AA400A1C878 /* ServiceLoginManager.swift */; };
 		0F5CEF512669A39700A1C878 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF502669A39700A1C878 /* UserModel.swift */; };
+		0F5CEF532669A6FC00A1C878 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF522669A6FC00A1C878 /* ImageDownloader.swift */; };
 		0F7517402669645500DA15D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F75173F2669645500DA15D1 /* AppDelegate.swift */; };
 		0F7517422669645500DA15D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7517412669645500DA15D1 /* SceneDelegate.swift */; };
 		0F7517492669645600DA15D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7517482669645600DA15D1 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		0F5CEF4C2669790600A1C878 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0F5CEF4E26698AA400A1C878 /* ServiceLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLoginManager.swift; sourceTree = "<group>"; };
 		0F5CEF502669A39700A1C878 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		0F5CEF522669A6FC00A1C878 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		0F75173C2669645500DA15D1 /* FirebaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F75173F2669645500DA15D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F7517412669645500DA15D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				0F5CEF4E26698AA400A1C878 /* ServiceLoginManager.swift */,
+				0F5CEF522669A6FC00A1C878 /* ImageDownloader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				0F5CEF4A26696E9E00A1C878 /* MainViewControllerViewModel.swift in Sources */,
 				0F5CEF4F26698AA400A1C878 /* ServiceLoginManager.swift in Sources */,
 				0F5CEF4826696E8B00A1C878 /* LoginViewControllerViewModel.swift in Sources */,
+				0F5CEF532669A6FC00A1C878 /* ImageDownloader.swift in Sources */,
 				0F7517422669645500DA15D1 /* SceneDelegate.swift in Sources */,
 				0F5CEF512669A39700A1C878 /* UserModel.swift in Sources */,
 				0F5CEF4226696B6600A1C878 /* MainViewController.swift in Sources */,
