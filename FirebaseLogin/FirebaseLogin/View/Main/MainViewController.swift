@@ -12,29 +12,34 @@ final class MainViewController: UIViewController {
     var loginWithMethod: LoginMethod?
     var userLogged: User?
     private var viewModel = MainViewControllerViewModel()
-    
 
     @IBOutlet private weak var userImage: UIImageView!
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var yearsTextField: UITextField!
-    @IBOutlet private weak var birthDayTextField: UITextField!
     @IBOutlet private weak var stackTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var nameTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var newClientLabel: UILabel!
     @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         setupView()
+        addPickerTarget()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        viewModel.addKeyboardObservers(self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.removeKeyboardObservers(self)
     }
 
 
@@ -42,32 +47,35 @@ final class MainViewController: UIViewController {
         viewModel.logOut(delegate: self)
     }
     
+    private func addPickerTarget() {
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+    }
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+        viewModel.dateSelected = sender.date
+    }
+    
     @objc func keyboardWillAppear() {
-        UIView.animate(withDuration: 1) {
-            self.stackTopConstraint.constant = 30
-            self.userImage.isHidden = true
-            self.nameTopConstraint.constant = 20
-            self.newClientLabel.isHidden = true
-            self.userNameLabel.text = "New client"
-            self.view.layoutIfNeeded()
-        }
+        animateView(expand: true)
     }
 
     @objc func keyboardWillDisappear() {
-        UIView.animate(withDuration: 1) {
-            self.stackTopConstraint.constant = 160
-            self.nameTopConstraint.constant = 120
-            self.newClientLabel.isHidden = false
-            self.userNameLabel.text = self.userLogged?.name
-            self.view.layoutIfNeeded()
-        } completion: { finish in
-            self.userImage.isHidden = false
-        }
+        animateView(expand: false)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+    private func hideViews(_ hide: Bool) {
+        userImage.isHidden = hide
+        newClientLabel.isHidden = hide
+    }
+    
+    private func animateView(expand: Bool) {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1) {
+            self.hideViews(expand ? true : false)
+            self.stackTopConstraint.constant = expand ? self.viewModel.topConstraintCompress : self.viewModel.topConstraintExpanded
+            self.nameTopConstraint.constant = expand ? self.viewModel.nameConstraintCompress : self.viewModel.nameConstraintExpanded
+            self.userNameLabel.text = expand ? self.viewModel.newClientText : self.userLogged?.name
+            self.view.layoutIfNeeded()
+        }
     }
     
     private func setupView() {
@@ -80,7 +88,35 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        //Validate user
+        if let nameText = nameTextField.text {
+            if !viewModel.isValidData(dataString: nameText, type: .name) {
+                nameTextField.textColor = viewModel.errorColor
+            } else {
+                nameTextField.textColor = viewModel.defaultColor
+            }
+        }
+        if let lastNameText = lastNameTextField.text {
+            if !viewModel.isValidData(dataString: lastNameText, type: .lastName) {
+                lastNameTextField.textColor = viewModel.errorColor
+            } else {
+                lastNameTextField.textColor = viewModel.defaultColor
+            }
+        }
+        if let years = yearsTextField.text {
+            viewModel.client.years = Int(years)
+        }
+        if !viewModel.isValidData(date: viewModel.dateSelected, type: .birthday) {
+            datePicker.tintColor = viewModel.errorColor
+        } else {
+            viewModel.client.birthDate = viewModel.dateSelected.toString()
+            datePicker.tintColor = viewModel.defaultColor
+        }
+            
+        if !viewModel.errors.isEmpty {
+            viewModel.presentDataErrorsMessage(delegate: self)
+        } else {
+            viewModel.saveUser()
+        }
     }
     
 }

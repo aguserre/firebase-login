@@ -52,4 +52,22 @@ extension User: Decodable {
         self.years = try container.decodeIfPresent(Int.self, forKey: .years)
         self.birthDate = try container.decodeIfPresent(String.self, forKey: .birthDate)
     }
+    
+    func toDictionary() -> [AnyHashable : Any] {
+        var dic = [AnyHashable : Any]()
+        if let name = name {
+            dic["name"] = name
+        }
+        if let lastName = lastName {
+            dic["lastName"] = lastName
+        }
+        if let years = years {
+            dic["years"] = years
+        }
+        if let birthDay = birthDate {
+            dic["birthDay"] = birthDay
+        }
+        
+        return dic
+    }
 }
