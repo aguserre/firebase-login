@@ -17,6 +17,7 @@ class FirebaseLoginTests: XCTestCase {
     let clientProofId = "1234567890"
     let newClient = User(name: "Dustin", lastName: "Henderson", years: 18, birthDate: "01/01/2003")
     
+    //MARK:- New client data validations
     func test_invalidName() {
         let nameStringEmpty = ""
         let nameStringWithSpace = " "
@@ -109,6 +110,7 @@ class FirebaseLoginTests: XCTestCase {
         XCTAssertFalse(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
+    //MARK:- Check if proof user exist into DB
     func test_checkIfTestUserExistInDB() throws {
         let service = ServiceDataManager()
         let expectation = self.expectation(description: "Waiting for firebase call complete.")
@@ -140,6 +142,7 @@ class FirebaseLoginTests: XCTestCase {
         }
     }
     
+    //MARK:- Save proof client into DB
     func test_addClientSuccess() throws {
         let service = ServiceDataManager()
         let expectation = self.expectation(description: "Waiting for firebase call complete.")
