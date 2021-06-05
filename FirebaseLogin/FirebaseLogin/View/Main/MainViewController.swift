@@ -23,6 +23,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var newClientLabel: UILabel!
     @IBOutlet private weak var saveButton: UIButton!
     @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var loader: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -96,6 +97,7 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction private func saveButtonTapped(_ sender: UIButton) {
+        startLoading()
         generateImpactWhenTouch()
         validateName()
         validateLastName()
@@ -103,6 +105,20 @@ final class MainViewController: UIViewController {
         validateBirthday()
         
         checkValidationErrors()
+    }
+    
+    private func startLoading() {
+        DispatchQueue.main.async {
+            self.loader.startAnimating()
+            self.saveButton.isEnabled = false
+        }
+    }
+    
+    private func stopLoading() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.loader.stopAnimating()
+            self.saveButton.isEnabled = true
+        }
     }
     
     func validateName() {
@@ -143,11 +159,11 @@ final class MainViewController: UIViewController {
     func checkValidationErrors() {
         if !viewModel.errors.isEmpty {
             viewModel.presentDataErrorsMessage(delegate: self)
+            stopLoading()
         } else {
             viewModel.saveUser(delegate: self, id: userLogged?.id)
-            DispatchQueue.main.async {
                 self.clearData()
-            }
+                self.stopLoading()
         }
     }
     

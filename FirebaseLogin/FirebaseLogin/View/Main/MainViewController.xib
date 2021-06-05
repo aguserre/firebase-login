@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="datePicker" destination="mlO-ED-tH9" id="WC2-tK-6aF"/>
                 <outlet property="lastNameTextField" destination="Rzn-Oh-gt2" id="41x-Jy-OAa"/>
+                <outlet property="loader" destination="SMV-Em-ylP" id="Qys-RT-QJi"/>
                 <outlet property="nameTextField" destination="nfe-lU-Vrj" id="nve-BX-YTd"/>
                 <outlet property="nameTopConstraint" destination="RoU-wM-5H1" id="NeN-9g-yT8"/>
                 <outlet property="newClientLabel" destination="WsV-Ds-cO9" id="SQc-qg-PYS"/>
@@ -101,10 +102,15 @@
                         <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="NBU-z3-IHn"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SMV-Em-ylP">
+                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="SMV-Em-ylP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="3ix-WB-ZeG"/>
                 <constraint firstItem="d1p-Fr-zZF" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="67x-Ry-Ptn"/>
                 <constraint firstItem="Tij-7m-BjF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="IrO-zJ-R4s"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yka-up-wIe" secondAttribute="trailing" constant="20" id="POF-Zh-hn5"/>
@@ -112,6 +118,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bWM-5i-bAq" secondAttribute="trailing" constant="30" id="WtH-Ur-6MK"/>
                 <constraint firstItem="yka-up-wIe" firstAttribute="top" secondItem="WsV-Ds-cO9" secondAttribute="bottom" constant="10" id="ZKW-cg-88N"/>
                 <constraint firstItem="yka-up-wIe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e0n-xk-eY9"/>
+                <constraint firstItem="SMV-Em-ylP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="elB-h0-1Fw"/>
                 <constraint firstItem="Tij-7m-BjF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hrI-qp-ZDm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bWM-5i-bAq" secondAttribute="bottom" constant="20" id="i7R-r0-XNz"/>
                 <constraint firstItem="yka-up-wIe" firstAttribute="top" secondItem="d1p-Fr-zZF" secondAttribute="bottom" constant="160" id="kVo-ed-5Qm"/>
