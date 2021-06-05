@@ -79,6 +79,7 @@ final class MainViewController: UIViewController {
     }
     
     private func setupView() {
+        saveButton.roundCorner(shadow: true)
         navigationItem.leftBarButtonItem = setupBackButton(target: #selector(logOut))
         ImageDownloader().downloadImage(url: userLogged?.image ?? "", completion: { image in
             self.userImage.image = image

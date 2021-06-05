@@ -5,6 +5,7 @@
 //  Created by Agustin Errecalde on 03/06/2021.
 //
 import UIKit
+import FirebaseAuth
 
 enum LoginMethod {
     case facebook, none
@@ -14,6 +15,14 @@ struct LoginViewControllerViewModel {
     
     var faceboohLogoImage: UIImage? {
         return UIImage(named: "logo-fb")
+    }
+    
+    var userLogged: User? {
+        if let user = Auth.auth().currentUser {
+            return User(id: user.uid, name: user.displayName, image: user.photoURL?.absoluteString)
+        } else {
+            return nil
+        }
     }
     
     func setupButtonBackgroundColor(type: LoginMethod) -> UIColor {
@@ -42,6 +51,10 @@ struct LoginViewControllerViewModel {
     
     var logoImage: UIImage? {
         return UIImage(named: "login-logo")
+    }
+    
+    var isUserActive: Bool {
+        return Auth.auth().currentUser != nil
     }
     
     func login(provider: LoginMethod, delegate: UIViewController) {

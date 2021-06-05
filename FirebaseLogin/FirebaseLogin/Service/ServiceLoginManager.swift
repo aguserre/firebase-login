@@ -25,8 +25,7 @@ final class ServiceLoginManager {
     }
     
     private func facebookLogin() {
-        let faceBookloginmanager = LoginManager()
-        faceBookloginmanager.logIn(permissions: [.email], viewController: delegate) { result in
+        LoginManager().logIn(permissions: [.email], viewController: delegate) { result in
             switch result {
             case .success(granted: _, declined: _, token: let token):
                 if let token = token?.tokenString {
@@ -35,12 +34,12 @@ final class ServiceLoginManager {
                     self.delegate?.presentAlertController(title: "Error", message: "An error ocurred. Try again later", completion: nil)
                 }
             case .cancelled:
-                self.firebaseSignOut()
-                faceBookloginmanager.logOut()
+                if let vc = self.delegate as? LoginViewController {
+                    vc.stopLoading()
+                }
             case .failed(let error):
                 self.delegate?.presentAlertController(title: "Error", message: error.localizedDescription, completion: { action in
-                    self.firebaseSignOut()
-                    faceBookloginmanager.logOut()
+                    self.logOut()
                 })
             }
         }
@@ -51,7 +50,7 @@ final class ServiceLoginManager {
         Auth.auth().signIn(with: credential) { res, error in
             if let error = error {
                 self.delegate?.presentAlertController(title: "Error", message: error.localizedDescription, completion: { action in
-                    self.firebaseSignOut()
+                    self.logOut()
                 })
             }
             if let res = res, let vc = self.delegate as? LoginViewController {
@@ -61,12 +60,17 @@ final class ServiceLoginManager {
         }
     }
     
+    func logOut() {
+        firebaseSignOut()
+        facebooklogOut()
+    }
+    
     //Firebase logOut
     func firebaseSignOut() {
         do {
             try Auth.auth().signOut()
         } catch {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
     }
     
