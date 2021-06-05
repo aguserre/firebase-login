@@ -14,7 +14,7 @@ enum LoginMethod {
 struct LoginViewControllerViewModel {
     
     var faceboohLogoImage: UIImage? {
-        return UIImage(named: "logo-fb")
+        return UIImage(named: fbLogoImageName)
     }
     
     var userLogged: User? {
@@ -38,7 +38,7 @@ struct LoginViewControllerViewModel {
     }
     
     var titleApp: String {
-        return "My Clients APP"
+        return appTitle
     }
     
     var titleColor: UIColor {
@@ -46,7 +46,7 @@ struct LoginViewControllerViewModel {
     }
     
     var logoImage: UIImage? {
-        return UIImage(named: "login-logo")
+        return UIImage(named: appLogoImageName)
     }
     
     var isUserActive: Bool {

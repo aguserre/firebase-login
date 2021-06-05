@@ -22,7 +22,7 @@ extension UINavigationController {
         let string = title
         let titleLbl = UILabel()
         let titleLblColor = UIColor.white
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Medium", size: 15)!,
+        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: appFont, size: 15)!,
                                                          NSAttributedString.Key.foregroundColor: titleLblColor]
         titleLbl.attributedText = NSAttributedString(string: string, attributes: attributes)
         titleLbl.sizeToFit()

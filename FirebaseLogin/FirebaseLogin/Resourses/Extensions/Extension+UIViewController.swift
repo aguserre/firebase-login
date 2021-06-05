@@ -22,7 +22,7 @@ extension UIViewController {
     
     func createDefaultAlert(title: String, message:String, completion: ((UIAlertAction) -> Void)?) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: completion)
+        let action = UIAlertAction(title: acceptTitle, style: .default, handler: completion)
         alert.addAction(action)
         
         return alert
@@ -36,7 +36,7 @@ extension UIViewController {
     
     func presentAlertControllerWithCancel(title: String, message:String, completion: ((UIAlertAction) -> Void)?) {
         let alert = createDefaultAlert(title: title, message: message, completion: completion)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: nil)
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
@@ -44,7 +44,7 @@ extension UIViewController {
     
     func presentAlertControllerWithDoubleAction(title: String, message:String, completionSuccess: ((UIAlertAction) -> Void)?, completionFailed: ((UIAlertAction) -> Void)?) {
         let alert = createDefaultAlert(title: title, message: message, completion: completionSuccess)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: completionFailed)
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: completionFailed)
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)

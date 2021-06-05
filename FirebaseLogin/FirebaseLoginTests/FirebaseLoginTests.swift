@@ -13,9 +13,6 @@ import FirebaseAuth
 class FirebaseLoginTests: XCTestCase {
 
     let mainVC = MainViewController()
-    //User created for proofs
-    let clientProofId = "1234567890"
-    let newClient = User(name: "Dustin", lastName: "Henderson", years: 18, birthDate: "01/01/2003")
     
     //MARK:- New client data validations
     func test_invalidName() {
@@ -82,11 +79,9 @@ class FirebaseLoginTests: XCTestCase {
     
     func test_maxYearsForClient() {
         mainVC.viewModel.client.years = 120
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let birthdate = formatter.date(from: "31/01/1901")!
+        let birthday = generateDate(string: "31/01/1901")
         
-        XCTAssertTrue(mainVC.viewModel.isValidData(date: birthdate, type: .birthday))
+        XCTAssertTrue(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
     func test_clientGreaterThenBirthday() {
@@ -122,7 +117,7 @@ class FirebaseLoginTests: XCTestCase {
         
         var result: UserStatusInDB = .notExist
         
-        service.checkIfClientExistInDB(id: clientProofId) { exist in
+        service.checkIfClientExistInDB(id: proofClientTestableId) { exist in
             result = exist ? .exist : .notExist
             
             expectation.fulfill()
@@ -148,7 +143,7 @@ class FirebaseLoginTests: XCTestCase {
         let expectation = self.expectation(description: "Waiting for firebase call complete.")
         var result: Result<Bool, Error>?
         
-        service.saveClient(isTestable: true, delegate: mainVC, id: clientProofId, client: newClient) { (error, res) in
+        service.saveClient(isTestable: true, delegate: mainVC, id: proofClientTestableId, client: newClient) { (error, res) in
             if let error = error {
                 result = .failure(error)
             } else {
@@ -170,7 +165,7 @@ class FirebaseLoginTests: XCTestCase {
     
     private func generateDate(string: String) -> Date {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = dateFormat
         guard let birthdate = formatter.date(from: string) else {
             return Date()
         }

@@ -10,18 +10,9 @@ import UIKit
 enum RequiredClientData {
     case name, lastName, years, birthday
 }
-enum DataError: String {
-    case name = "NOMBRE INCORRECTO"
-    case lastName = "APELLIDO INCORRECTO"
-    case birthdayToYoung = "Debe ser Mayor de 18 anios"
-    case birthdayToOld = "Usted es un dinosaurio?"
-    case birthdayNotMatch = "No coincide su edad con la fecha seleccionada"
-}
 
 class MainViewControllerViewModel {
         
-    var kMinYears = 13
-    
     var errors = [DataError]()
     
     var dateSelected = Date()
@@ -40,7 +31,7 @@ class MainViewControllerViewModel {
         return 120
     }
     var newClientText: String {
-        return "Fill Client data"
+        return fillCLientDataTitle
     }
     
     var errorColor: UIColor {
@@ -63,7 +54,7 @@ class MainViewControllerViewModel {
     }
         
     func logOut(delegate: UIViewController) {
-        delegate.presentAlertControllerWithCancel(title: "Wait!", message: "Are you sure to close session?") { action in
+        delegate.presentAlertControllerWithCancel(title: waitTitle, message: closeSessionWarninMessage) { action in
             let serviceLoginManager = ServiceLoginManager(delegate: delegate)
             serviceLoginManager.firebaseSignOut()
             serviceLoginManager.facebooklogOut()
@@ -85,7 +76,7 @@ class MainViewControllerViewModel {
     }
     
     private func validateFullName(name: String, type: RequiredClientData) -> Bool {
-        let val = name.count > 2
+        let val = name.count > kMinStringToAccept
         if !val {
             errors.append(type == .name ? .name : .lastName)
         } else {
@@ -107,8 +98,8 @@ class MainViewControllerViewModel {
             return false
         }
         
-        let hasRequiredYears = years >= kMinYears
-        let isToOld = years > 120
+        let hasRequiredYears = years >= kMinAge
+        let isToOld = years > kMaxAge
         if !hasRequiredYears {
             errors.append(.birthdayToYoung)
         }
@@ -135,7 +126,7 @@ class MainViewControllerViewModel {
         for error in errors {
             separatedErrors = separatedErrors+error.rawValue.capitalized+"\n"
         }
-        delegate.presentAlertController(title: "Error", message: separatedErrors, completion: nil)
+        delegate.presentAlertController(title: errorTitle, message: separatedErrors, completion: nil)
         errors.removeAll()
     }
     
@@ -143,11 +134,11 @@ class MainViewControllerViewModel {
         if let uid = id {
             ServiceDataManager().saveClient(delegate: delegate, id: uid, client: client) { error, ref in
                 if let error = error {
-                    delegate.presentAlertController(title: "Error", message: error.localizedDescription, completion: nil)
+                    delegate.presentAlertController(title: errorTitle, message: error.localizedDescription, completion: nil)
                 return
                 }
                 
-                delegate.presentAlertController(title: "Success!", message: "Client saved", completion: nil)
+                delegate.presentAlertController(title: successTitle, message: clientSavedMessage, completion: nil)
             }
         }
         

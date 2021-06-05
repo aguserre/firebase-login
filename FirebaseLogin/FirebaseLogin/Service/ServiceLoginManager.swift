@@ -31,14 +31,14 @@ final class ServiceLoginManager {
                 if let token = token?.tokenString {
                     self.tryloginWithFacebook(token: token)
                 } else {
-                    self.delegate?.presentAlertController(title: "Error", message: "An error ocurred. Try again later", completion: nil)
+                    self.delegate?.presentAlertController(title: errorTitle, message: defaultErrorMessage, completion: nil)
                 }
             case .cancelled:
                 if let vc = self.delegate as? LoginViewController {
                     vc.stopLoading()
                 }
             case .failed(let error):
-                self.delegate?.presentAlertController(title: "Error", message: error.localizedDescription, completion: { action in
+                self.delegate?.presentAlertController(title: errorTitle, message: error.localizedDescription, completion: { action in
                     self.logOut()
                 })
             }
@@ -49,7 +49,7 @@ final class ServiceLoginManager {
         let credential = FacebookAuthProvider.credential(withAccessToken: token)
         Auth.auth().signIn(with: credential) { res, error in
             if let error = error {
-                self.delegate?.presentAlertController(title: "Error", message: error.localizedDescription, completion: { action in
+                self.delegate?.presentAlertController(title: errorTitle, message: error.localizedDescription, completion: { action in
                     self.logOut()
                 })
             }
@@ -61,7 +61,7 @@ final class ServiceLoginManager {
     }
     
     func fetchUserLoggedImage(completion: @escaping (UIImage?) -> Void) {
-        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"picture.width(480).height(480)"])
+        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields":facebookPermissions])
             
         graphRequest.start(completionHandler: { (connection, result, error) in
             if let res = result {
@@ -72,11 +72,11 @@ final class ServiceLoginManager {
                        let data = NSData(contentsOf: url) {
                         completion(UIImage(data: data as Data))
                     } else {
-                        completion(UIImage(named: "login-logo"))
+                        completion(UIImage(named: appLogoImageName))
                     }
                 }
             } else {
-                completion(UIImage(named: "login-logo"))
+                completion(UIImage(named: appLogoImageName))
             }
         })
     }

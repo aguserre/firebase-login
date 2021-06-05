@@ -10,6 +10,7 @@
 		0F371A38266C28B4006ED875 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F371A37266C28B4006ED875 /* Extension+Date.swift */; };
 		0F371A3A266C28D9006ED875 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F371A39266C28D9006ED875 /* Extension+UIView.swift */; };
 		0F371A3C266C2905006ED875 /* Extension+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F371A3B266C2905006ED875 /* Extension+UINavigationController.swift */; };
+		0F371A3E266C2BEB006ED875 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F371A3D266C2BEB006ED875 /* Constants.swift */; };
 		0F5CEF4226696B6600A1C878 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4026696B6600A1C878 /* MainViewController.swift */; };
 		0F5CEF4326696B6600A1C878 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4126696B6600A1C878 /* MainViewController.xib */; };
 		0F5CEF4826696E8B00A1C878 /* LoginViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEF4726696E8B00A1C878 /* LoginViewControllerViewModel.swift */; };
@@ -45,6 +46,7 @@
 		0F371A37266C28B4006ED875 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		0F371A39266C28D9006ED875 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		0F371A3B266C2905006ED875 /* Extension+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UINavigationController.swift"; sourceTree = "<group>"; };
+		0F371A3D266C2BEB006ED875 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F5CEF4026696B6600A1C878 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0F5CEF4126696B6600A1C878 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		0F5CEF4726696E8B00A1C878 /* LoginViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerViewModel.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				0F7517412669645500DA15D1 /* SceneDelegate.swift */,
 				0F75174D2669645600DA15D1 /* Info.plist */,
 				0F75174A2669645600DA15D1 /* LaunchScreen.storyboard */,
+				0F371A3D266C2BEB006ED875 /* Constants.swift */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				0F5CEF4826696E8B00A1C878 /* LoginViewControllerViewModel.swift in Sources */,
 				0F7517422669645500DA15D1 /* SceneDelegate.swift in Sources */,
 				0F371A3C266C2905006ED875 /* Extension+UINavigationController.swift in Sources */,
+				0F371A3E266C2BEB006ED875 /* Constants.swift in Sources */,
 				0F5CEF512669A39700A1C878 /* UserModel.swift in Sources */,
 				0F5CEF4226696B6600A1C878 /* MainViewController.swift in Sources */,
 			);

@@ -179,8 +179,8 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+
+        let cs = NSCharacterSet(charactersIn: charactersAcceptable).inverted
         let filtered = string.components(separatedBy: cs).joined(separator: "")
 
         return (string == filtered)
