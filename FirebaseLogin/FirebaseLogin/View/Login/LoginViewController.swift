@@ -57,8 +57,7 @@ final class LoginViewController: UIViewController {
     
     private func setupDefaultView() {
         facebookButton.backgroundColor = viewModel.setupButtonBackgroundColor(type: .facebook)
-        facebookButton.roundCorner()
-        facebookButton.addShadow()
+        facebookButton.roundCorner(shadow: true)
         facebookIconImage.image = viewModel.faceboohLogoImage
         facebookIconImage.addShadow()
         stopLoading()

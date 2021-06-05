@@ -42,7 +42,7 @@ struct LoginViewControllerViewModel {
     }
     
     var titleApp: String {
-        return "iSocial Login"
+        return "My Clients APP"
     }
     
     var titleColor: UIColor {
