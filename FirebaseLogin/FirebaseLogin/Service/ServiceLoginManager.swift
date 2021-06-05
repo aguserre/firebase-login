@@ -60,6 +60,27 @@ final class ServiceLoginManager {
         }
     }
     
+    func fetchUserLoggedImage(completion: @escaping (UIImage?) -> Void) {
+        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"picture.width(480).height(480)"])
+            
+        graphRequest.start(completionHandler: { (connection, result, error) in
+            if let res = result {
+                DispatchQueue.main.async {
+                    if let field = res as? [String:Any],
+                       let imageURL = ((field["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String,
+                       let url = URL(string: imageURL),
+                       let data = NSData(contentsOf: url) {
+                        completion(UIImage(data: data as Data))
+                    } else {
+                        completion(UIImage(named: "login-logo"))
+                    }
+                }
+            } else {
+                completion(UIImage(named: "login-logo"))
+            }
+        })
+    }
+    
     func logOut() {
         firebaseSignOut()
         facebooklogOut()

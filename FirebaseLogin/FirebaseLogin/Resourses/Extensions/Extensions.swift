@@ -78,7 +78,7 @@ extension UIViewController {
 }
 
 extension UIView {
-    func addShadow(offset: CGSize = .zero, color: UIColor = .black, radius: CGFloat = 5, opacity: Float = 0.4) {
+    func addShadow(offset: CGSize = .zero, color: UIColor = .systemIndigo, radius: CGFloat = 7, opacity: Float = 0.5) {
         layer.masksToBounds = false
         layer.shadowOffset = offset
         layer.shadowColor = color.cgColor
@@ -94,7 +94,7 @@ extension UIView {
         layer.cornerRadius = radius ?? 5
         clipsToBounds = true
         if shadow {
-            addShadow(offset: .zero, color: .black, radius: 4, opacity: 0.4)
+            addShadow()
         }
     }
     

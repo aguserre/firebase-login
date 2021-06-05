@@ -81,14 +81,14 @@ final class MainViewController: UIViewController {
     private func setupView() {
         saveButton.roundCorner(shadow: true)
         navigationItem.leftBarButtonItem = setupBackButton(target: #selector(logOut))
-        ImageDownloader().downloadImage(url: userLogged?.image ?? "", completion: { image in
+        ServiceLoginManager(delegate: self).fetchUserLoggedImage { image in
             self.userImage.image = image
             self.userImage.roundCorner(shadow: true)
-        })
+        }
         userNameLabel.text = userLogged?.name
     }
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    @IBAction private func saveButtonTapped(_ sender: UIButton) {
         if let nameText = nameTextField.text {
             if !viewModel.isValidData(dataString: nameText, type: .name) {
                 nameTextField.textColor = viewModel.errorColor

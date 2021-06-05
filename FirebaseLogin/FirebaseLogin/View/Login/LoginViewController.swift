@@ -41,7 +41,6 @@ final class LoginViewController: UIViewController {
     }
 
     private func setupView(activeUser: Bool) {
-        view.backgroundColor = viewModel.backgroundColor
         titleAppLabel.text = viewModel.titleApp
         titleAppLabel.textColor = viewModel.titleColor
         logoImage.image = viewModel.logoImage
@@ -59,7 +58,6 @@ final class LoginViewController: UIViewController {
         facebookButton.backgroundColor = viewModel.setupButtonBackgroundColor(type: .facebook)
         facebookButton.roundCorner(shadow: true)
         facebookIconImage.image = viewModel.faceboohLogoImage
-        facebookIconImage.addShadow()
         stopLoading()
     }
     

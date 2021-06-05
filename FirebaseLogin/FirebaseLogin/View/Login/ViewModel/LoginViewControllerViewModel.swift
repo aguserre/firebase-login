@@ -37,10 +37,6 @@ struct LoginViewControllerViewModel {
         return backgroundColor
     }
     
-    var backgroundColor: UIColor {
-        return .white
-    }
-    
     var titleApp: String {
         return "My Clients APP"
     }

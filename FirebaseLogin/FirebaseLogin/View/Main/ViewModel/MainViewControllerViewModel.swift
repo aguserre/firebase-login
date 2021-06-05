@@ -48,7 +48,7 @@ class MainViewControllerViewModel {
     }
     
     var defaultColor: UIColor {
-        return .systemIndigo
+        return .label
     }
     
     var client = User()
