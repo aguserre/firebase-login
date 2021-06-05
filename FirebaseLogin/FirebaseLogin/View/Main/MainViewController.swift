@@ -110,6 +110,7 @@ final class MainViewController: UIViewController {
     private func startLoading() {
         DispatchQueue.main.async {
             self.loader.startAnimating()
+            self.navigationItem.leftBarButtonItem?.isEnabled = false
             self.saveButton.isEnabled = false
         }
     }
@@ -117,6 +118,7 @@ final class MainViewController: UIViewController {
     private func stopLoading() {
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.loader.stopAnimating()
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
             self.saveButton.isEnabled = true
         }
     }
