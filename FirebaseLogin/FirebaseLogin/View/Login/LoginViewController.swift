@@ -10,7 +10,7 @@ import UIKit
 final class LoginViewController: UIViewController {
 
     //Outlets
-    @IBOutlet weak var titleAppLabel: UILabel!
+    @IBOutlet private weak var titleAppLabel: UILabel!
     @IBOutlet private weak var logoImage: UIImageView!
     @IBOutlet private weak var facebookButton: UIButton!
     @IBOutlet private weak var facebookIconImage: UIImageView!
@@ -29,7 +29,7 @@ final class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.hide()
         if !isInitialView {
             setupView(activeUser: false)
         }
@@ -37,7 +37,7 @@ final class LoginViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.show()
     }
 
     private func setupView(activeUser: Bool) {
@@ -51,7 +51,6 @@ final class LoginViewController: UIViewController {
         } else {
             setupDefaultView()
         }
-    
     }
     
     private func setupDefaultView() {
@@ -72,6 +71,7 @@ final class LoginViewController: UIViewController {
     }
 
     @IBAction func facebookTapped(_ sender: UIButton) {
+        generateImpactWhenTouch()
         startLoading()
         viewModel.login(provider: .facebook, delegate: self)
     }

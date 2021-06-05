@@ -22,17 +22,37 @@ class ServiceDataManager: NSObject {
     }
     
     
-    func saveClient(delegate: UIViewController, id: String, client: User, completion: @escaping ServiceManagerFinishedSavedClient) {
+    func saveClient(isTestable: Bool = false, delegate: UIViewController, id: String, client: User, completion: @escaping ServiceManagerFinishedSavedClient) {
         checkDatabaseReference()
-        dataBaseRef = Database.database().reference().child(id).child("clients").childByAutoId()
+        if isTestable {
+            dataBaseRef = Database.database().reference().child(id).child("clients").child("1234567890")
+        } else {
+            dataBaseRef = Database.database().reference().child(id).child("clients").childByAutoId()
+        }
+        
         var clientWithKey = client
-        clientWithKey.id = dataBaseRef.key
+        clientWithKey.id = isTestable ? "1234567890" : dataBaseRef.key
         dataBaseRef.setValue(clientWithKey.toDictionary()) { error, ref in
-            if let error = error {
-                completion(error, ref)
-                return
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(error, ref)
+                    return
+                }
+                completion(nil, ref)
             }
-            completion(nil, ref)
+        }
+    }
+    
+    //Create method to check if client is saved into DB
+    func checkIfClientExistInDB(id: String, completion: @escaping (Bool) -> Void) {
+        var dataBaseRef: DatabaseReference!
+        dataBaseRef = Database.database().reference().child(id).child("clients")
+        dataBaseRef.observeSingleEvent(of: .value) { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                completion(snapshots.count > 0)
+            } else {
+                completion(false)
+            }
         }
     }
 }

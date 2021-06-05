@@ -20,25 +20,16 @@
 		0F7517492669645600DA15D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7517482669645600DA15D1 /* Assets.xcassets */; };
 		0F75174C2669645600DA15D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F75174A2669645600DA15D1 /* LaunchScreen.storyboard */; };
 		0F7517572669645600DA15D1 /* FirebaseLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7517562669645600DA15D1 /* FirebaseLoginTests.swift */; };
-		0F7517622669645600DA15D1 /* FirebaseLoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7517612669645600DA15D1 /* FirebaseLoginUITests.swift */; };
 		0F7517752669660A00DA15D1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7517732669660A00DA15D1 /* LoginViewController.swift */; };
 		0F7517762669660A00DA15D1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7517742669660A00DA15D1 /* LoginViewController.xib */; };
 		0F751778266968D400DA15D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F751777266968D400DA15D1 /* GoogleService-Info.plist */; };
 		0F8AEEDC266AE5D400E9D231 /* ServiceDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8AEEDB266AE5D400E9D231 /* ServiceDataManager.swift */; };
 		15EA84EB3E15889074C8FDF6 /* Pods_FirebaseLoginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3041156FFA65864457EA58C0 /* Pods_FirebaseLoginTests.framework */; };
 		2B2FF1639B83575510D7588D /* Pods_FirebaseLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB315DF19C8F3A256B86D3E /* Pods_FirebaseLogin.framework */; };
-		C4E06C4BA46252C4C7ACE8CB /* Pods_FirebaseLogin_FirebaseLoginUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5D042CCAE21813DDC66EDD /* Pods_FirebaseLogin_FirebaseLoginUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0F7517532669645600DA15D1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F7517342669645500DA15D1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F75173B2669645500DA15D1;
-			remoteInfo = FirebaseLogin;
-		};
-		0F75175E2669645600DA15D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0F7517342669645500DA15D1 /* Project object */;
 			proxyType = 1;
@@ -66,9 +57,6 @@
 		0F7517522669645600DA15D1 /* FirebaseLoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseLoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7517562669645600DA15D1 /* FirebaseLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLoginTests.swift; sourceTree = "<group>"; };
 		0F7517582669645600DA15D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F75175D2669645600DA15D1 /* FirebaseLoginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseLoginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F7517612669645600DA15D1 /* FirebaseLoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLoginUITests.swift; sourceTree = "<group>"; };
-		0F7517632669645600DA15D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7517732669660A00DA15D1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0F7517742669660A00DA15D1 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		0F751777266968D400DA15D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -97,14 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EA84EB3E15889074C8FDF6 /* Pods_FirebaseLoginTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F75175A2669645600DA15D1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4E06C4BA46252C4C7ACE8CB /* Pods_FirebaseLogin_FirebaseLoginUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +140,6 @@
 			children = (
 				0F75173E2669645500DA15D1 /* FirebaseLogin */,
 				0F7517552669645600DA15D1 /* FirebaseLoginTests */,
-				0F7517602669645600DA15D1 /* FirebaseLoginUITests */,
 				0F75173D2669645500DA15D1 /* Products */,
 				44FF32E78FEDE7CADB2EE4C6 /* Pods */,
 				94DCF4EEDAD92674F48F6C78 /* Frameworks */,
@@ -172,7 +151,6 @@
 			children = (
 				0F75173C2669645500DA15D1 /* FirebaseLogin.app */,
 				0F7517522669645600DA15D1 /* FirebaseLoginTests.xctest */,
-				0F75175D2669645600DA15D1 /* FirebaseLoginUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,15 +173,6 @@
 				0F7517582669645600DA15D1 /* Info.plist */,
 			);
 			path = FirebaseLoginTests;
-			sourceTree = "<group>";
-		};
-		0F7517602669645600DA15D1 /* FirebaseLoginUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0F7517612669645600DA15D1 /* FirebaseLoginUITests.swift */,
-				0F7517632669645600DA15D1 /* Info.plist */,
-			);
-			path = FirebaseLoginUITests;
 			sourceTree = "<group>";
 		};
 		0F75176F2669646E00DA15D1 /* Resourses */ = {
@@ -312,27 +281,6 @@
 			productReference = 0F7517522669645600DA15D1 /* FirebaseLoginTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0F75175C2669645600DA15D1 /* FirebaseLoginUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0F75176C2669645600DA15D1 /* Build configuration list for PBXNativeTarget "FirebaseLoginUITests" */;
-			buildPhases = (
-				80235996B0102662E6EFFCC8 /* [CP] Check Pods Manifest.lock */,
-				0F7517592669645600DA15D1 /* Sources */,
-				0F75175A2669645600DA15D1 /* Frameworks */,
-				0F75175B2669645600DA15D1 /* Resources */,
-				8304F075793893A24B553685 /* [CP] Embed Pods Frameworks */,
-				78CF67F5BE4ED27A497B0E23 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0F75175F2669645600DA15D1 /* PBXTargetDependency */,
-			);
-			name = FirebaseLoginUITests;
-			productName = FirebaseLoginUITests;
-			productReference = 0F75175D2669645600DA15D1 /* FirebaseLoginUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -346,10 +294,6 @@
 						CreatedOnToolsVersion = 12.5;
 					};
 					0F7517512669645600DA15D1 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 0F75173B2669645500DA15D1;
-					};
-					0F75175C2669645600DA15D1 = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 0F75173B2669645500DA15D1;
 					};
@@ -370,7 +314,6 @@
 			targets = (
 				0F75173B2669645500DA15D1 /* FirebaseLogin */,
 				0F7517512669645600DA15D1 /* FirebaseLoginTests */,
-				0F75175C2669645600DA15D1 /* FirebaseLoginUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -395,33 +338,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0F75175B2669645600DA15D1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		78CF67F5BE4ED27A497B0E23 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseLogin-FirebaseLoginUITests/Pods-FirebaseLogin-FirebaseLoginUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseLogin-FirebaseLoginUITests/Pods-FirebaseLogin-FirebaseLoginUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseLogin-FirebaseLoginUITests/Pods-FirebaseLogin-FirebaseLoginUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		801EEE6DD7A0C97ED733574E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,45 +361,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		80235996B0102662E6EFFCC8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FirebaseLogin-FirebaseLoginUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8304F075793893A24B553685 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseLogin-FirebaseLoginUITests/Pods-FirebaseLogin-FirebaseLoginUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseLogin-FirebaseLoginUITests/Pods-FirebaseLogin-FirebaseLoginUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseLogin-FirebaseLoginUITests/Pods-FirebaseLogin-FirebaseLoginUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A426C24CE7CFB86619DC06C1 /* [CP] Copy Pods Resources */ = {
@@ -568,14 +448,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0F7517592669645600DA15D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F7517622669645600DA15D1 /* FirebaseLoginUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -583,11 +455,6 @@
 			isa = PBXTargetDependency;
 			target = 0F75173B2669645500DA15D1 /* FirebaseLogin */;
 			targetProxy = 0F7517532669645600DA15D1 /* PBXContainerItemProxy */;
-		};
-		0F75175F2669645600DA15D1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0F75173B2669645500DA15D1 /* FirebaseLogin */;
-			targetProxy = 0F75175E2669645600DA15D1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -807,48 +674,6 @@
 			};
 			name = Release;
 		};
-		0F75176D2669645600DA15D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C96F0BC48B424178641F67F7 /* Pods-FirebaseLogin-FirebaseLoginUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TXGG4M9RK8;
-				INFOPLIST_FILE = FirebaseLoginUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.focusdev.FirebaseLoginUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FirebaseLogin;
-			};
-			name = Debug;
-		};
-		0F75176E2669645600DA15D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3754E947D6D9881EB474683F /* Pods-FirebaseLogin-FirebaseLoginUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TXGG4M9RK8;
-				INFOPLIST_FILE = FirebaseLoginUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.focusdev.FirebaseLoginUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FirebaseLogin;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -875,15 +700,6 @@
 			buildConfigurations = (
 				0F75176A2669645600DA15D1 /* Debug */,
 				0F75176B2669645600DA15D1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0F75176C2669645600DA15D1 /* Build configuration list for PBXNativeTarget "FirebaseLoginUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0F75176D2669645600DA15D1 /* Debug */,
-				0F75176E2669645600DA15D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

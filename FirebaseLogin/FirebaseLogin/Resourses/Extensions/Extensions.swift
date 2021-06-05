@@ -63,6 +63,17 @@ extension UIViewController {
         return newBackButton
     }
     
+}
+
+extension UINavigationController {
+    func hide() {
+        setNavigationBarHidden(true, animated: true)
+    }
+    
+    func show() {
+        setNavigationBarHidden(false, animated: true)
+    }
+    
     func setNavTitle(title: String) {
         let string = title
         let titleLbl = UILabel()
@@ -74,7 +85,6 @@ extension UIViewController {
         
         navigationItem.titleView = titleLbl
     }
-    
 }
 
 extension UIView {

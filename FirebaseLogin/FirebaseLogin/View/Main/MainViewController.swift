@@ -11,13 +11,13 @@ final class MainViewController: UIViewController {
     
     var loginWithMethod: LoginMethod?
     var userLogged: User?
-    private var viewModel = MainViewControllerViewModel()
+    var viewModel = MainViewControllerViewModel()
 
     @IBOutlet private weak var userImage: UIImageView!
     @IBOutlet private weak var userNameLabel: UILabel!
-    @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var lastNameTextField: UITextField!
-    @IBOutlet private weak var yearsTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var yearsTextField: UITextField!
     @IBOutlet private weak var stackTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var nameTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var newClientLabel: UILabel!
@@ -29,6 +29,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         setupView()
+        setupTextFieldsDelegate()
         addPickerTarget()
     }
     
@@ -42,8 +43,8 @@ final class MainViewController: UIViewController {
         viewModel.removeKeyboardObservers(self)
     }
 
-
     @objc private func logOut() {
+        generateImpactWhenTouch()
         viewModel.logOut(delegate: self)
     }
     
@@ -56,13 +57,19 @@ final class MainViewController: UIViewController {
     }
     
     @objc func keyboardWillAppear() {
+        generateImpactWhenTouch()
         animateView(expand: true)
     }
 
     @objc func keyboardWillDisappear() {
         animateView(expand: false)
     }
-
+    
+    private func setupTextFieldsDelegate() {
+        nameTextField.delegate = self
+        lastNameTextField.delegate = self
+    }
+    
     private func hideViews(_ hide: Bool) {
         userImage.isHidden = hide
         newClientLabel.isHidden = hide
@@ -89,6 +96,16 @@ final class MainViewController: UIViewController {
     }
     
     @IBAction private func saveButtonTapped(_ sender: UIButton) {
+        generateImpactWhenTouch()
+        validateName()
+        validateLastName()
+        setYears()
+        validateBirthday()
+        
+        checkValidationErrors()
+    }
+    
+    func validateName() {
         if let nameText = nameTextField.text {
             if !viewModel.isValidData(dataString: nameText, type: .name) {
                 nameTextField.textColor = viewModel.errorColor
@@ -96,6 +113,9 @@ final class MainViewController: UIViewController {
                 nameTextField.textColor = viewModel.defaultColor
             }
         }
+    }
+    
+    func validateLastName() {
         if let lastNameText = lastNameTextField.text {
             if !viewModel.isValidData(dataString: lastNameText, type: .lastName) {
                 lastNameTextField.textColor = viewModel.errorColor
@@ -103,16 +123,24 @@ final class MainViewController: UIViewController {
                 lastNameTextField.textColor = viewModel.defaultColor
             }
         }
+    }
+    
+    func setYears() {
         if let years = yearsTextField.text {
             viewModel.client.years = Int(years)
         }
+    }
+    
+    func validateBirthday() {
         if !viewModel.isValidData(date: viewModel.dateSelected, type: .birthday) {
             datePicker.tintColor = viewModel.errorColor
         } else {
             viewModel.client.birthDate = viewModel.dateSelected.toString()
             datePicker.tintColor = viewModel.defaultColor
         }
-            
+    }
+    
+    func checkValidationErrors() {
         if !viewModel.errors.isEmpty {
             viewModel.presentDataErrorsMessage(delegate: self)
         } else {
@@ -129,4 +157,14 @@ final class MainViewController: UIViewController {
         yearsTextField.text = ""
     }
     
+}
+
+extension MainViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = string.components(separatedBy: cs).joined(separator: "")
+
+        return (string == filtered)
+    }
 }
