@@ -6,17 +6,12 @@ target 'FirebaseLogin' do
   use_frameworks!
 
   # Pods for FirebaseLogin
-  pod 'Kingfisher', '~> 6.3'
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Database'
   pod 'FBSDKLoginKit'
 
   target 'FirebaseLoginTests' do
     inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'FirebaseLoginUITests' do
     # Pods for testing
   end
 
