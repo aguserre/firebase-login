@@ -1,11 +1,12 @@
 //
-//  Extensions.swift
+//  Extension+UIViewController.swift
 //  FirebaseLogin
 //
 //  Created by Agustin Errecalde on 03/06/2021.
 //
 
 import UIKit
+
 
 extension UIViewController {
     
@@ -63,65 +64,4 @@ extension UIViewController {
         return newBackButton
     }
     
-}
-
-extension UINavigationController {
-    func hide() {
-        setNavigationBarHidden(true, animated: true)
-    }
-    
-    func show() {
-        setNavigationBarHidden(false, animated: true)
-    }
-    
-    func setNavTitle(title: String) {
-        let string = title
-        let titleLbl = UILabel()
-        let titleLblColor = UIColor.white
-        let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Medium", size: 15)!,
-                                                         NSAttributedString.Key.foregroundColor: titleLblColor]
-        titleLbl.attributedText = NSAttributedString(string: string, attributes: attributes)
-        titleLbl.sizeToFit()
-        
-        navigationItem.titleView = titleLbl
-    }
-}
-
-extension UIView {
-    func addShadow(offset: CGSize = .zero, color: UIColor = .systemIndigo, radius: CGFloat = 7, opacity: Float = 0.5) {
-        layer.masksToBounds = false
-        layer.shadowOffset = offset
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-        layer.shadowOpacity = opacity
-
-        let backgroundCGColor = backgroundColor?.cgColor
-        backgroundColor = nil
-        layer.backgroundColor =  backgroundCGColor
-    }
-    
-    func roundCorner(radius: CGFloat? = nil, shadow: Bool = false) {
-        layer.cornerRadius = radius ?? 5
-        clipsToBounds = true
-        if shadow {
-            addShadow()
-        }
-    }
-    
-}
-
-extension Date {
-    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
-        return calendar.dateComponents(Set(components), from: self)
-    }
-
-    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
-        return calendar.component(component, from: self)
-    }
-    
-    func toString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        return formatter.string(from: self)
-    }
 }
