@@ -28,7 +28,7 @@ struct User {
     var name: String?
     var lastName: String?
     var image: String?
-    var years: Int?
+    var age: Int?
     var birthDate: String?
 }
 
@@ -49,7 +49,7 @@ extension User: Decodable {
         self.name = try container.decodeIfPresent(String.self, forKey: .name)
         self.lastName = try container.decodeIfPresent(String.self, forKey: .lastName)
         self.image = try container.decodeIfPresent(String.self, forKey: .image)
-        self.years = try container.decodeIfPresent(Int.self, forKey: .years)
+        self.age = try container.decodeIfPresent(Int.self, forKey: .years)
         self.birthDate = try container.decodeIfPresent(String.self, forKey: .birthDate)
     }
     
@@ -57,7 +57,7 @@ extension User: Decodable {
         return ["id" : (id ?? "") as String,
                 "name" : (name ?? "") as String,
                 "lastName" : (lastName ?? "") as String,
-                "years" : NSNumber(value: years ?? 0),
+                "years" : NSNumber(value: age ?? 0),
                 "birthDay" : (birthDate ?? "") as String] as NSDictionary
     }
 }

@@ -145,7 +145,7 @@ final class MainViewController: UIViewController {
     
     func setYears() {
         if let years = yearsTextField.text {
-            viewModel.client.years = Int(years)
+            viewModel.client.age = Int(years)
         }
     }
     

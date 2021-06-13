@@ -92,7 +92,7 @@ class MainViewControllerViewModel {
     private func validateBirthDayDate(date: Date) -> Bool {
         client.birthDate = date.toString()
         let years = compareDates(birthDay: date)
-        let matchedWithYears = years == client.years
+        let matchedWithYears = years == client.age
         if !matchedWithYears {
             errors.append(.birthdayNotMatch)
             return false

@@ -4,7 +4,6 @@
 //
 //  Created by Agustin Errecalde on 03/06/2021.
 //
-import UIKit
 import FirebaseAuth
 
 enum LoginMethod {
@@ -55,6 +54,10 @@ struct LoginViewControllerViewModel {
     
     func login(provider: LoginMethod, delegate: UIViewController) {
         ServiceLoginManager(delegate: delegate).login(provider: provider, delegate: delegate)
+    }
+    
+    func afkds() {
+        
     }
     
 }

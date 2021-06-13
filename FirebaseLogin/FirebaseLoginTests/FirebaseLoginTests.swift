@@ -50,56 +50,56 @@ class FirebaseLoginTests: XCTestCase {
     
     func test_successSaveYearsString() {
         let year = "18"
-        mainVC.viewModel.client.years = Int(year)
+        mainVC.viewModel.client.age = Int(year)
         
-        XCTAssertEqual(mainVC.viewModel.client.years, 18)
-        XCTAssertFalse(mainVC.viewModel.client.years != 18)
+        XCTAssertEqual(mainVC.viewModel.client.age, 18)
+        XCTAssertFalse(mainVC.viewModel.client.age != 18)
     }
     
     func test_clientToYoung() {
-        mainVC.viewModel.client.years = 12
+        mainVC.viewModel.client.age = 12
         let birthday = generateDate(string: "31/01/2007")
         
         XCTAssertFalse(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
     func test_minYearsForClient() {
-        mainVC.viewModel.client.years = 13
+        mainVC.viewModel.client.age = 13
         let birthday = generateDate(string: "31/01/2008")
         
         XCTAssertTrue(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
     func test_clientToOld() {
-        mainVC.viewModel.client.years = 121
+        mainVC.viewModel.client.age = 121
         let birthday = generateDate(string: "31/01/1900")
         
         XCTAssertFalse(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
     func test_maxYearsForClient() {
-        mainVC.viewModel.client.years = 120
+        mainVC.viewModel.client.age = 120
         let birthday = generateDate(string: "31/01/1901")
         
         XCTAssertTrue(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
     func test_clientGreaterThenBirthday() {
-        mainVC.viewModel.client.years = 32
+        mainVC.viewModel.client.age = 32
         let birthday = generateDate(string: "21/12/1989")
         
         XCTAssertFalse(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
     func test_clientEqualThenBirthday() {
-        mainVC.viewModel.client.years = 31
+        mainVC.viewModel.client.age = 31
         let birthday = generateDate(string: "21/12/1989")
         
         XCTAssertTrue(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
     }
     
     func test_clientLessThenBirthday() {
-        mainVC.viewModel.client.years = 30
+        mainVC.viewModel.client.age = 30
         let birthday = generateDate(string: "21/12/1989")
         
         XCTAssertFalse(mainVC.viewModel.isValidData(date: birthday, type: .birthday))
